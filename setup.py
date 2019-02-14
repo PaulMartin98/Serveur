@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect
 from flask_socketio import SocketIO, send, emit
-
+import os
 import random
 import numpy as np
 import time as time
