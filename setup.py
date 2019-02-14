@@ -225,7 +225,7 @@ def index():
 
 
 # definign the login page by the file login.html
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     # session is a cookie saving the pseudo of the player
     # if pseudo is known, the player is redirected to the game
@@ -302,4 +302,6 @@ def handle_request_frame():
 if __name__ == '__main__':
     print("map size : ", map_width, map_height, " : ", map_width * map_height)
     game_session = game()
-    socketio.run(app, host='127.0.0.1', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+    #socketio.run(app, host='127.0.0.1', port=5000)
